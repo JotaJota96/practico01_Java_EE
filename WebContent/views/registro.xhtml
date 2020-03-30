@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head></h:head> 
+<h:body> 
+	<h1>Registro de usuario</h1>
+	<!-- 
+	nick, correo, nombre completo, contraseña
+	 -->
+	 
+	 <h:form>
+		<table>
+			<tr> <!-- nick -->
+				<td>Nick:</td>
+				<td><h:inputText value="#{registro.nick}" /></td>
+			</tr>
+			<tr> <!-- correo -->
+				<td>Correo:</td>
+				<td>
+					<h:inputText value="#{registro.correo}" />
+				</td>
+			</tr>
+			<tr> <!-- nombre completo -->
+				<td>Nombre completo:</td>
+				<td>
+					<h:inputText value="#{registro.nombreCompleto}" />
+				</td>
+			</tr>
+			<tr> <!-- contraseña -->
+				<td>Contraseña:</td>
+				<td>
+					<h:inputSecret value="#{registro.contraseña}" />
+				</td>
+			</tr>
+			<tr> <!-- contraseña verificar -->
+				<td>Repetir contraseña:</td>
+				<td>
+					<h:inputSecret value="#{registro.contraseñaVerificar}" />
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<h:commandButton value="Registrarse" action="#{registro.registrarse()}"/>
+				</td>
+			</tr>
+		</table>
+	 </h:form>
+	 
+</h:body>
+</html>
