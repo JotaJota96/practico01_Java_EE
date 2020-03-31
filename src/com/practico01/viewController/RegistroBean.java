@@ -1,12 +1,24 @@
-package com.practico01.beans;
+package com.practico01.viewController;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
-@SuppressWarnings("deprecation")
-@ManagedBean(name="registro")
+import com.practico01.clases.Usuario;
+import com.practico01.manejadores.ManejadorDeUsuarios;
+
+import java.io.IOException;
+import java.io.Serializable;
+
+@Named(value = "registro")
 @SessionScoped
-public class RegistroBean {
+public class RegistroBean implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@EJB
+	private ManejadorDeUsuarios manejadorDeUsuarios;
+	
 	// nick, correo, nombre completo, contraseña
 	private String nick;
 	private String correo;
@@ -15,14 +27,19 @@ public class RegistroBean {
 	private String contraseñaVerificar;
 	
 	public RegistroBean() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	public void registrarse() {
-		System.out.println(this.toString());
+	public void registrarse() throws IOException {
+		Usuario nuevoUsuario = new Usuario(nick, correo, nombreCompleto, contraseña);
+		manejadorDeUsuarios.registrarUsuario(nuevoUsuario);
 	}
 	
 	//---------------------------------------------------------------------------
+	@PostConstruct
+	public void init() {
+		
+	}
+	
 	public String getNick() {
 		return nick;
 	}
