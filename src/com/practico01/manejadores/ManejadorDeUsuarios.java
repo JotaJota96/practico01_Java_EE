@@ -24,6 +24,15 @@ public class ManejadorDeUsuarios {
 		}
 		System.out.println("------------------------");
 	}
+	
+	public boolean validarLogin(String usuario, String contrasenia) {
+		for (Usuario u : usuarios) {
+			if (u.getNick().equals(usuario) || u.getNick().equals(usuario)) {
+				return u.validarContrasenia(contrasenia);
+			}
+		}
+		return false;
+	}
 }
 
 
