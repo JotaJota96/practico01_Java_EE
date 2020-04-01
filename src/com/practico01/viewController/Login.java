@@ -16,7 +16,7 @@ public class Login implements Serializable{
 	@EJB
 	private ManejadorDeUsuarios manejadorDeUsuarios;
 	
-	private String usuario;
+	private String nickOCorreo;
 	private String contrasenia;
 
 	
@@ -25,7 +25,7 @@ public class Login implements Serializable{
 	}
 	
 	public String login() {
-		if (manejadorDeUsuarios.validarLogin(usuario, contrasenia)) {
+		if (manejadorDeUsuarios.validarLogin(nickOCorreo, contrasenia)) {
 			return "bienvenida";
 		}else {
 			return "login";
@@ -33,11 +33,11 @@ public class Login implements Serializable{
 	}
 	
 	//-------------------------------------------------------------------------
-	public String getUsuario() {
-		return usuario;
+	public String getNickOCorreo() {
+		return nickOCorreo;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setNickOCorreo(String nickOCorreo) {
+		this.nickOCorreo = nickOCorreo;
 	}
 	public String getContrasenia() {
 		return contrasenia;

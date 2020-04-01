@@ -29,9 +29,16 @@ public class RegistroBean implements Serializable {
 	public RegistroBean() {
 	}
 	
-	public void registrarse() throws IOException {
+	public String registrarse() throws IOException {
 		Usuario nuevoUsuario = new Usuario(nick, correo, nombreCompleto, contraseña);
-		manejadorDeUsuarios.registrarUsuario(nuevoUsuario);
+		boolean agregado = manejadorDeUsuarios.registrarUsuario(nuevoUsuario);
+		String outcome;
+		if (agregado) {
+			outcome = "bienvenida";
+		}else {
+			outcome = "registro";
+		}
+		return outcome;
 	}
 	
 	//---------------------------------------------------------------------------

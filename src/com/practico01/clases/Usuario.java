@@ -21,7 +21,7 @@ public class Usuario {
     }
     
     public boolean validarContrasenia(String contrasenia) {
-    	return this.contrasenia == contrasenia;
+    	return this.contrasenia.equals(contrasenia);
     }
     
     //-------------------------------------------------------------------------------

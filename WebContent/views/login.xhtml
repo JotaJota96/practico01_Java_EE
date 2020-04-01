@@ -12,22 +12,27 @@
 			<tr> <!-- nick / correo -->
 				<td>Nick o Correo:</td>
 				<td>
-					<h:inputText value="" />
+					<h:inputText value="#{login.nickOCorreo}" />
 				</td>
 			</tr>
 			<tr> <!-- contraseña -->
 				<td>Contraseña:</td>
 				<td>
-					<h:inputSecret value="" />
+					<h:inputSecret value="#{login.contrasenia}" />
 				</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<h:commandButton value="Ingresar" action="dfgfdg"/>
+					<h:commandButton value="Ingresar" action="#{login.login()}"/>
 				</td>
 			</tr>
 		</table>
 	</h:form>
+	<h:link  value="Registrarme" outcome="registro"/>
+	<br></br>
+	<br></br>
+	<br></br>
+	<h:link  value="Volver al inicio" outcome="index"/>
 </body> 
 </html>
